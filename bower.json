@@ -1,0 +1,11 @@
+{
+  "name": "ng-complex",
+  "dependencies": {
+    "angular": "~1.4.3",
+    "angular-bootstrap": "~0.13.1",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap-sass": "~3.3.5",
+    "angular-cookies": "~1.4.3",
+    "angular-local-storage": "~0.2.2"
+  }
+}

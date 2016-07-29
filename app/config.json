@@ -1,0 +1,23 @@
+{
+  "constants": {
+    "development": {
+      "API_URL": "http://vngrs-challenge.herokuapp.com",
+      "CLIENT_ID": "6b831b31d4b16c829c4306d08a5ca77c7e59d71633400aaf017729e0c342f3a7"
+    },
+    "production": {
+      "API_URL": "http://production.api"
+    }
+  },
+  "libs": {
+    "scripts": [
+      "/lodash/lodash.js",
+      "/angular/angular.js",
+      "/angular-bootstrap/ui-bootstrap.js",
+      "/angular-ui-router/release/angular-ui-router.js",
+      "/angular-cookies/angular-cookies.js",
+      "/angular-local-storage/dist/angular-local-storage.js"
+    ],
+    "styles": [
+    ]
+  }
+}

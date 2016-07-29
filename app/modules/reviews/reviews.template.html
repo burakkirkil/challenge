@@ -1,0 +1,83 @@
+<div class="reviews row" ng-if="vm.isLoading">
+
+  <div class="header-container">
+    <h1>Book REVIEWS</h1>
+    <h5>Loading...</h5>
+  </div>
+
+</div>
+
+<div class="reviews row" ng-if="!vm.isLoading">
+
+  <div class="header-container">
+    <h1>Book REVIEWS</h1>
+    <star-rating ng-model="vm.averageUserRating" max="vm.maxUserRating"></star-rating>
+    <h5>{{ vm.totalReviews }} Total Reviews</h5>
+  </div>
+
+  <div class="col-md-8">
+    <h4>SEE REVIEWS FROM</h4>
+    <button ng-click="vm.showEveryone()">EVERYONE ({{ vm.totalReviews }})</button>
+    <button ng-repeat="type in vm.userTypes" ng-click="vm.setQuery(type.name, type.count)">
+      {{ type.name | uppercase }}S ({{ type.count }})
+    </button>
+
+    <div class="options">
+      <!-- Search: <input ng-model="vm.query"> -->
+          <!-- How Many: <input ng-model="vm.quantityLimit"> -->
+          Sort by:
+          <select ng-model="vm.orderPropSelected">
+            <option ng-repeat="value in vm.orderPropValues" value="{{ value.value }}">{{ value.title }}</option>
+          </select>
+    </div>
+
+
+    <!-- Review Template -->
+    <div class="review" ng-repeat=" review in vm.reviews | 
+                                    filter:vm.query | 
+                                    orderBy:vm.orderPropSelected:true | 
+                                    limitTo:vm.quantityLimit">
+      <div class="meta is-{{ review.user.type }}">
+        <div class="date">{{ review.date | date:'longDate' }}</div>
+        <div class="name ">{{ review.user.firstname }} {{ review.user.lastname }} <sup>({{ review.user.type }})</sup></div>
+        <div class="book-type">{{ review.book_type }}</div>
+      </div>
+      <div class="title-container">
+        <star-rating ng-model="review.rating" max="vm.maxUserRating" style="small-star"></star-rating>
+        <h2 class="title">{{ review.title | uppercase }}</h2>
+      </div>
+      <div class="content">{{ review.content }}</div>
+      <!-- <a href="#" class="read-more">Read More...</a> -->
+
+      <div class="footnotes">
+        {{ review.helpful_count }} out of {{ review.helpful_count + review.not_helpful_count }} found this review helpful.
+        <br />Was this review helpful to you?
+        <button ng-click="vm.vote(review.id, true)">Helpful</button>
+        <button ng-click="vm.vote(review.id, false)">Not Helpful</button>
+      </div>
+
+    </div>
+
+    <div class="bottom-container">
+      <button ng-click="vm.seeAll()" ng-if="!vm.isSeeAll">SEE ALL {{ vm.totalReviewsByType }} REVIEWS</button>
+      <button ng-click="vm.seeLess()" ng-if="vm.isSeeAll">SEE LESS</button>
+      <button>ADD A REVIEW</button>
+    </div>
+  </div>
+
+
+
+  <div class="col-md-4">
+    <star-rating ng-model="vm.averageUserRating" max="vm.maxUserRating"></star-rating>
+    <h5>Average Rating: {{ vm.averageUserRating }} of {{ vm.maxUserRating }} stars</h5>
+    <div ng-repeat="rating in vm.ratings">{{ rating.id }} STAR
+      <div class="bar-container">
+        <div class="bar-container__bar" style="width: {{ rating.value * 1.8 }}px;"></div>
+      </div>
+      ({{ rating.value }})
+    </div>
+    <a href="#" ng-click="vm.viewAll()">View All {{ vm.totalReviews }} Reviews</a>
+  </div>
+
+
+</div>
