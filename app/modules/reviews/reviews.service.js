@@ -48,8 +48,7 @@ function UserRating(logger, _) {
   };
 
   function getAverage(data){
-    var averageUserRating = Math.round(_.meanBy(data, function(review) { return review.rating; }));
-    return averageUserRating;
+    return Math.round(_.meanBy(data, function(review) { return review.rating; }));
   }
 
   function getUserRatings(data, max){
