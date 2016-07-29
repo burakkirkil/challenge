@@ -16,7 +16,7 @@
   </div>
 
   <div class="col-md-8">
-  
+
     <h4>SEE REVIEWS FROM</h4>
     <button ng-click="vm.showEveryone()">EVERYONE ({{ vm.totalReviews }})</button>
     <button ng-repeat="type in vm.userTypes" ng-click="vm.setQuery(type.name, type.count)">
@@ -25,11 +25,11 @@
 
     <div class="options">
       <!-- Search: <input ng-model="vm.query"> -->
-          <!-- How Many: <input ng-model="vm.quantityLimit"> -->
-          Sort by:
-          <select ng-model="vm.orderPropSelected">
-            <option ng-repeat="value in vm.orderPropValues" value="{{ value.value }}">{{ value.title }}</option>
-          </select>
+      <!-- How Many: <input ng-model="vm.quantityLimit"> -->
+      Sort by:
+      <select ng-model="vm.orderPropSelected">
+        <option ng-repeat="value in vm.orderPropValues" value="{{ value.value }}">{{ value.title }}</option>
+      </select>
     </div>
 
 
@@ -40,7 +40,7 @@
                                     limitTo:vm.quantityLimit">
       <div class="meta is-{{ review.user.type }}">
         <div class="date">{{ review.date | date:'longDate' }}</div>
-        <div class="name ">{{ review.user.firstname }} {{ review.user.lastname }} <sup>({{ review.user.type }})</sup></div>
+        <div class="name ">{{ review.user.firstname }} {{ review.user.lastname }}</sup></div>
         <div class="book-type">{{ review.book_type }}</div>
       </div>
       <div class="title-container">
