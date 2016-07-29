@@ -69,7 +69,7 @@
   <div class="col-md-4">
     <star-rating ng-model="vm.averageUserRating" max="vm.maxUserRating"></star-rating>
     <h5>Average Rating: {{ vm.averageUserRating }} of {{ vm.maxUserRating }} stars</h5>
-    <div ng-repeat="rating in vm.ratings">{{ rating.id }} STAR
+    <div ng-repeat="rating in vm.ratings | orderBy:'id':true">{{ rating.id }} STAR
       <div class="bar-container">
         <div class="bar-container__bar" style="width: {{ rating.value * 1.8 }}px;"></div>
       </div>

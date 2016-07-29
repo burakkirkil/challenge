@@ -67,7 +67,7 @@ function UserRating(logger, _) {
       vmRatings.push({id: j + 1, value: userRatings[j]});
     }
 
-    return vmRatings.slice().reverse();
+    return vmRatings;
   }
 }
 
