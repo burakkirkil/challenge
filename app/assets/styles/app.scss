@@ -2,7 +2,7 @@ $icon-font-path: '/bootstrap-sass/assets/fonts/bootstrap/';
 @import './bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 
 body {
-	background-color: #e7e7e7;
+  background-color: #e7e7e7;
 }
 
 #main-container {
@@ -10,68 +10,68 @@ body {
 }
 
 .header-container {
-	text-align: center;
-	margin-bottom: 60px;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
 /* REVIEWS */
 .reviews {
-	padding-bottom: 40px;
+  padding-bottom: 40px;
 }
 
 .options {
-	padding: 20px 0;
+  padding: 20px 0;
 }
 
 .review {
-	padding-bottom: 13px;
-	padding-top: 20px;
-	border-bottom: 1px solid #cfcfcf;
+  padding-bottom: 13px;
+  padding-top: 20px;
+  border-bottom: 1px solid #cfcfcf;
 }
 
 .meta {
-	padding-left: 5px;
-	margin-bottom: 10px;
-	border-left: 10px solid #000;
-	
-	&.is-reader {
-		border-left-color: darken(#c4ebfc, 10%) !important;
-	}
-	&.is-critic {
-		border-left-color: darken(#fde3a0, 10%) !important;
-	}
-	&.is-editor {
-		border-left-color: darken(#fecbcb, 10%) !important;
-	}
-	&.is-librarian {
-		border-left-color: darken(#e1ffca, 10%) !important;
-	}
-	&.is-blogger {
-		border-left-color: darken(#e6cbfb, 10%) !important;
-	}
+  padding-left: 5px;
+  margin-bottom: 10px;
+  border-left: 10px solid #000;
+  
+  &.is-reader {
+    border-left-color: darken(#c4ebfc, 10%) !important;
+  }
+  &.is-critic {
+    border-left-color: darken(#fde3a0, 10%) !important;
+  }
+  &.is-editor {
+    border-left-color: darken(#fecbcb, 10%) !important;
+  }
+  &.is-librarian {
+    border-left-color: darken(#e1ffca, 10%) !important;
+  }
+  &.is-blogger {
+    border-left-color: darken(#e6cbfb, 10%) !important;
+  }
 }
 
 .footnotes {
-	margin-top: 25px;
-	color: #8f8f8f;
-	font-size: 12px;
+  margin-top: 25px;
+  color: #8f8f8f;
+  font-size: 12px;
 }
 
 .bottom-container {
-	padding: 20px 0;
+  padding: 20px 0;
 }
 
 /* Book Ratings */
 
 .bar-container {
-	width: 180px;
-	background-color: #fff;
-	display: inline-block;
+  width: 180px;
+  background-color: #fff;
+  display: inline-block;
 
-	&__bar {
-		height: 12px;
-		background-color: #47a7ae;
-	}
+  &__bar {
+    height: 12px;
+    background-color: #47a7ae;
+  }
 }
 
 /* Star Ratngs */
@@ -101,7 +101,7 @@ body {
 }
 
 .review .star {
-	font-size: 16px;
-	text-shadow: none;
+  font-size: 16px;
+  text-shadow: none;
 }
 

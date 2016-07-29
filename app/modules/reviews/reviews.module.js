@@ -1,2 +1,2 @@
 angular.
-	module('app.reviews', []);
+  module('app.reviews', []);

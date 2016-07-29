@@ -29,19 +29,19 @@ function DataService($http, logger, API_URL) {
 
   function vote(id, type){
 
-  	var parameter = JSON.stringify({'type': type});
+    var parameter = JSON.stringify({'type': type});
 
-  	return $http.post( API_URL + '/api/reviews/' + id +'/vote', parameter)
-  	  .then(complete)
-  	  .catch(failed);
+    return $http.post( API_URL + '/api/reviews/' + id +'/vote', parameter)
+      .then(complete)
+      .catch(failed);
 
-  	function complete(response) {
-  	  return response.data;
-  	}
+    function complete(response) {
+      return response.data;
+    }
 
-  	function failed(error) {
-  	  logger.error('XHR Failed for vote.' + error.data);
-  	}
+    function failed(error) {
+      logger.error('XHR Failed for vote.' + error.data);
+    }
 
   }
 }

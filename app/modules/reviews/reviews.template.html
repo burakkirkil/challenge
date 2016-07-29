@@ -16,6 +16,7 @@
   </div>
 
   <div class="col-md-8">
+  
     <h4>SEE REVIEWS FROM</h4>
     <button ng-click="vm.showEveryone()">EVERYONE ({{ vm.totalReviews }})</button>
     <button ng-repeat="type in vm.userTypes" ng-click="vm.setQuery(type.name, type.count)">
@@ -65,8 +66,6 @@
     </div>
   </div>
 
-
-
   <div class="col-md-4">
     <star-rating ng-model="vm.averageUserRating" max="vm.maxUserRating"></star-rating>
     <h5>Average Rating: {{ vm.averageUserRating }} of {{ vm.maxUserRating }} stars</h5>
@@ -78,6 +77,5 @@
     </div>
     <a href="#" ng-click="vm.viewAll()">View All {{ vm.totalReviews }} Reviews</a>
   </div>
-
 
 </div>

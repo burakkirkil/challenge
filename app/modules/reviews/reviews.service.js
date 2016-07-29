@@ -44,31 +44,6 @@ function UserTypes(logger) {
   }
 }
 
-// Average Filter
-angular
-    .module("app.reviews")
-    .filter("average", ["$log", average]);
-
-function average($log) {
-	return function(array) {
-		if (!angular.isArray(array) || array.length === 0) {
-			$log.error("Expect array.");
-			return;
-		}
-
-		var sum = 0;
-		angular.forEach(array, function(value) {
-			if (!angular.isNumber(value)) {
-				$log.error("Expect number.");
-				return;
-			}
-			sum += value;
-		});
-
-		return sum / array.length;
-	};
-}
-
 // UserRating
 angular
   .module('app.reviews')
@@ -81,26 +56,51 @@ function UserRating(logger, _) {
   };
 
   function getAverage(data){
-  	var averageUserRating = Math.round(_.meanBy(data, function(review) { return review.rating; }));
+    var averageUserRating = Math.round(_.meanBy(data, function(review) { return review.rating; }));
     return averageUserRating;
   }
 
   function getUserRatings(data, max){
-  	var userRatings = [];
-  	var vmRatings = [];
+    var userRatings = [];
+    var vmRatings = [];
 
-  	for (var i = 0; i < max; i++) {
-  		userRatings.push(0);
-  	}
+    for (var i = 0; i < max; i++) {
+      userRatings.push(0);
+    }
 
-  	angular.forEach(data, review => {
-  			review.rating && userRatings[review.rating - 1]++;
-  	});
+    angular.forEach(data, review => {
+        review.rating && userRatings[review.rating - 1]++;
+    });
 
-  	for (var j = 0; j < userRatings.length; j++) {
-  	  vmRatings.push({id: j + 1, value: userRatings[j]});
-  	}
+    for (var j = 0; j < userRatings.length; j++) {
+      vmRatings.push({id: j + 1, value: userRatings[j]});
+    }
 
-  	return vmRatings.slice().reverse();
+    return vmRatings.slice().reverse();
   }
+}
+
+// Average Filter
+angular
+    .module("app.reviews")
+    .filter("average", ["$log", average]);
+
+function average($log) {
+  return function(array) {
+    if (!angular.isArray(array) || array.length === 0) {
+      $log.error("Expect array.");
+      return;
+    }
+
+    var sum = 0;
+    angular.forEach(array, function(value) {
+      if (!angular.isNumber(value)) {
+        $log.error("Expect number.");
+        return;
+      }
+      sum += value;
+    });
+
+    return sum / array.length;
+  };
 }

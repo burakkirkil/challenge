@@ -1,6 +1,6 @@
 angular
   .module('app.shared')
-	.directive('title', ['$rootScope', '$timeout',
+  .directive('title', ['$rootScope', '$timeout',
   function($rootScope, $timeout) {
     return {
       link: function() {

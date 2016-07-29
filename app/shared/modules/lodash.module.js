@@ -1,5 +1,5 @@
 angular
-	.module('lodash', [])
-	.factory('_', function() {
-	  return window._;
-	});
+  .module('lodash', [])
+  .factory('_', function() {
+    return window._;
+  });
