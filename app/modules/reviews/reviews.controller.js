@@ -23,7 +23,7 @@ function ReviewsController(DataService, UserTypes, OrderPropValues, UserRating, 
   vm.maxUserRating = options.maxUserRating;
   vm.quantityLimit = options.quantityLimit;
   vm.query = {};
-  vm.userTypes = [];
+  vm.userTypes = {};
   vm.isSeeAll = false;
   vm.isLoading = true;
   vm.orderPropValues = OrderPropValues;

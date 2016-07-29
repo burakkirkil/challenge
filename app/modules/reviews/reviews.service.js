@@ -22,22 +22,14 @@ function UserTypes(logger) {
   };
 
   function getUserTypes(data){
-    var userTypes = [];
+    var userTypes = {};
 
     angular.forEach(data, review => {
-        var isFound = false;
-
-        for (var i = 0; i < userTypes.length; i++) {
-          if(review.user.type == userTypes[i].name){
-            isFound = true;
-            userTypes[i].count++;
-            break;
-          } else {
-            isFound = false;
-          }
-        }
-
-        !isFound && userTypes.push({name: review.user.type, count: 1});
+      if(!userTypes[review.user.type]){
+        userTypes[review.user.type] = 1;
+      } else {
+        userTypes[review.user.type]++;
+      }
     });
 
     return userTypes;

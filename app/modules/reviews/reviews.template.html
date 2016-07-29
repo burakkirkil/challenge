@@ -19,8 +19,8 @@
 
     <h4>SEE REVIEWS FROM</h4>
     <button ng-click="vm.showEveryone()">EVERYONE ({{ vm.totalReviews }})</button>
-    <button ng-repeat="type in vm.userTypes" ng-click="vm.setQuery(type.name, type.count)">
-      {{ type.name | uppercase }}S ({{ type.count }})
+    <button ng-repeat="(type, count) in vm.userTypes" ng-click="vm.setQuery(type, count)">
+      {{ type | uppercase }}S ({{ count }})
     </button>
 
     <div class="options">
