@@ -4,11 +4,11 @@ angular
   .factory('OrderPropValues', OrderPropValues);
 
 function OrderPropValues() {
-  return [
-    {value: 'helpful_count', title: 'Most Helpful'},
-    {value: 'rating', title: 'Highest Rating'},
-    {value: 'date', title: 'Newest First'}
-  ];
+  return {
+    'helpful_count': 'Most Helpful',
+    'rating': 'Highest Rating',
+    'date': 'Newest First'
+  };
 }
 
 // UserTypes
@@ -60,7 +60,7 @@ function UserRating(logger, _) {
     }
 
     angular.forEach(data, review => {
-        review.rating && userRatings[review.rating - 1]++;
+        if(review.rating) userRatings[review.rating - 1]++;
     });
 
     for (var j = 0; j < userRatings.length; j++) {

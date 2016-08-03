@@ -27,7 +27,7 @@ function ReviewsController(DataService, UserTypes, OrderPropValues, UserRating, 
   vm.isSeeAll = false;
   vm.isLoading = true;
   vm.orderPropValues = OrderPropValues;
-  vm.orderPropSelected = vm.orderPropValues[0].value;
+  vm.orderPropSelected = Object.keys(vm.orderPropValues)[0];
 
   // VM Interface Methods
   vm.showEveryone = showEveryone;
@@ -45,7 +45,9 @@ function ReviewsController(DataService, UserTypes, OrderPropValues, UserRating, 
   function init() {
       return getReviews().then( data => {
         logger.info('Getting Reviews DONE, data is: ', data);
+
         update(data);
+
         logger.warn('Reviews Updated.');
         logger.groupEnd('Reviews Module');
       });
@@ -55,12 +57,16 @@ function ReviewsController(DataService, UserTypes, OrderPropValues, UserRating, 
     vm.reviews = data;
     vm.totalReviews = vm.reviews.length;
     vm.totalReviewsByType = vm.totalReviews;
+
     vm.userTypes = UserTypes.getUserTypes(vm.reviews);
-    logger.info('User Types: ', vm.userTypes);
+    logger.info('User Types: ', JSON.stringify(vm.userTypes));
+
     vm.averageUserRating = UserRating.getAverage(vm.reviews);
     logger.info('Average User Rating: ', vm.averageUserRating);
+
     vm.ratings = UserRating.getUserRatings(vm.reviews, vm.maxUserRating);
-    logger.info('User Ratings: ', vm.ratings);
+    logger.info('User Ratings: ', JSON.stringify(vm.ratings));
+
     vm.isLoading = false;
   }
 
@@ -102,7 +108,7 @@ function ReviewsController(DataService, UserTypes, OrderPropValues, UserRating, 
 
   function vote(id, isUp){
     logger.warn('Updating Reviews...');
-    let vote = isUp ? options.voteTypes.up : options.voteTypes.down
+    var vote = isUp ? options.voteTypes.up : options.voteTypes.down;
     return DataService.vote(id, vote).then((data) => {
       vm.isLoading = false;
       init();
