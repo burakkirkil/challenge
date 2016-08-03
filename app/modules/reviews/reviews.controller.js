@@ -3,7 +3,7 @@ angular
   .module('app.reviews')
   .controller('ReviewsController', ReviewsController);
 
-function ReviewsController(DataService, UserTypes, OrderPropValues, UserRating, logger) {
+function ReviewsController(DataService, UserTypes, OrderPropValues, UserRating, logger, $scope) {
   var vm = this,
   // TODO: make options injectible
       options = {
@@ -24,6 +24,7 @@ function ReviewsController(DataService, UserTypes, OrderPropValues, UserRating, 
   vm.quantityLimit = options.quantityLimit;
   vm.query = {};
   vm.userTypes = {};
+  vm.selectedUserType = 'everyone';
   vm.isSeeAll = false;
   vm.isLoading = true;
   vm.orderPropValues = OrderPropValues;
@@ -36,6 +37,12 @@ function ReviewsController(DataService, UserTypes, OrderPropValues, UserRating, 
   vm.seeLess = seeLess;
   vm.setQuery = setQuery;
   vm.vote = vote;
+
+  $scope.$watch(function () {
+    return vm.selectedUserType;
+  }, function (newValue, oldValue) {
+    vm.setQuery(newValue);
+  });
 
   // initialize Controller
   init();
@@ -88,6 +95,7 @@ function ReviewsController(DataService, UserTypes, OrderPropValues, UserRating, 
   function showEveryone(){
     vm.query = {};
     vm.totalReviewsByType = vm.totalReviews;
+    vm.selectedUserType = 'everyone';
   }
 
   function seeAll() {
@@ -100,9 +108,14 @@ function ReviewsController(DataService, UserTypes, OrderPropValues, UserRating, 
     vm.isSeeAll = false;
   }
 
-  function setQuery(typeName, typeCount){
-    vm.query = {user: {type: typeName}};
-    vm.totalReviewsByType = typeCount;
+  function setQuery(type){
+    if(type === 'everyone'){
+      showEveryone();
+      return;
+    }
+    vm.query = {user: {type: type}};
+    vm.totalReviewsByType = vm.userTypes[type];
+    vm.selectedUserType = type;
     seeLess();
   }
 
