@@ -10,20 +10,33 @@
   <div class="content-container">
     <div class="user-types">
       <h4 style="border-bottom: 1px solid #ccc;">SEE REVIEWS FROM:</h4>
-      <button ng-click="vm.showEveryone()">EVERYONE ({{ vm.totalReviews }})</button>
-      <button ng-repeat="(type, count) in vm.userTypes" ng-click="vm.setQuery(type, count)">
-        {{ type | uppercase }}S ({{ count }})
-      </button>
+      <a ng-class="vm.query.user.type === type ? 'is-selected' : 'is-not-selected'" class="ribbon is-everyone" ng-click="vm.showEveryone()">EVERYONE <br /> ({{ vm.totalReviews }})</a>
+      <a ng-class="vm.query.user.type === type ? 'is-selected' : 'is-not-selected'" class="ribbon is-{{ type }}" ng-repeat="(type, count) in vm.userTypes" ng-click="vm.setQuery(type, count)">
+        {{ type | uppercase }}S  <br />  ({{ count }})
+      </a>
     </div>
 
-    <div class="options">
+    <div class="sort-filter">
       <!-- Search: <input ng-model="vm.query"> -->
       <!-- How Many: <input ng-model="vm.quantityLimit"> -->
-      <h2><span class="serif">{{vm.orderPropValues[vm.orderPropSelected]}}</span><br /> REVIEWS</h2>
-      Sort by:
-      <select ng-model="vm.orderPropSelected">
-        <option ng-repeat="(value, title) in vm.orderPropValues" value="{{ value }}">{{ title }}</option>
-      </select>
+      <div class="sort-filter__title">
+        <h2><span class="serif">{{vm.orderPropValues[vm.orderPropSelected]}}</span><br /> REVIEWS</h2>
+      </div>
+      <div class="sort-filter__options">
+        Sort by:
+        <select ng-model="vm.orderPropSelected">
+          <option ng-repeat="(value, title) in vm.orderPropValues" value="{{ value }}">{{ title }}</option>
+        </select>
+      </div>
+      <div class="sort-filter__options is-mobile">
+        See reviews from:
+        <select ng-model="vm.selectedUserType">
+          <option value="everyone">EVERYONE <br /> ({{ vm.totalReviews }})</option>
+          <option value="{{type}}" ng-repeat="(type, count) in vm.userTypes">
+            {{ type | uppercase }}S  <br />  ({{ count }})
+          </option>
+        </select>
+      </div>
     </div>
 
 
@@ -33,15 +46,24 @@
                                     orderBy:vm.orderPropSelected:true |
                                     limitTo:vm.quantityLimit">
       <div class="meta is-{{ review.user.type }}">
-        <div class="date">{{ review.date | date:'longDate' }}</div>
-        <div class="name ">{{ review.user.firstname }} {{ review.user.lastname }}</sup></div>
-        <div class="book-type">{{ review.book_type }}</div>
+        <div class="meta__img">
+          <img src="http://placehold.it/50x50" alt="{{ review.book_type }}">
+        </div>
+        <div>
+          <div class="meta__date">{{ review.date | date:'longDate' }}</div>
+          <div class="meta__name ">{{ review.user.firstname | uppercase }} {{ review.user.lastname | uppercase }}</sup></div>
+          <div class="meta__book-type">{{ review.book_type }}</div>
+        </div>
       </div>
-      <div class="title-container">
-        <star-rating ng-model="review.rating" max="vm.maxUserRating" style="small-star"></star-rating>
-        <h3 class="title">{{ review.title | uppercase }}</h3>
+      <div class="title">
+        <div class="title__rating">
+          <star-rating ng-model="review.rating" max="vm.maxUserRating" style="small-star"></star-rating>
+        </div>
+        <div class="title__title">
+          <h3>{{ review.title | uppercase }}</h3>
+        </div>
       </div>
-      <div class="content">{{ review.content }}</div>
+      <div class="review__content">{{ review.content }}</div>
       <!-- <a href="#" class="read-more">Read More...</a> -->
 
       <div class="footnotes">
