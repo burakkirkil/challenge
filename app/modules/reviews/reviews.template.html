@@ -22,12 +22,6 @@
       <div class="sort-filter__title">
         <h2><span class="serif">{{vm.orderPropValues[vm.orderPropSelected]}}</span><br /> REVIEWS</h2>
       </div>
-      <div class="sort-filter__options">
-        Sort by:
-        <select ng-model="vm.orderPropSelected">
-          <option ng-repeat="(value, title) in vm.orderPropValues" value="{{ value }}">{{ title }}</option>
-        </select>
-      </div>
       <div class="sort-filter__options is-mobile">
         See reviews from:
         <select ng-model="vm.selectedUserType">
@@ -35,6 +29,12 @@
           <option value="{{type}}" ng-repeat="(type, count) in vm.userTypes">
             {{ type | uppercase }}S  <br />  ({{ count }})
           </option>
+        </select>
+      </div>
+      <div class="sort-filter__options">
+        Sort by:
+        <select ng-model="vm.orderPropSelected">
+          <option ng-repeat="(value, title) in vm.orderPropValues" value="{{ value }}">{{ title }}</option>
         </select>
       </div>
     </div>
