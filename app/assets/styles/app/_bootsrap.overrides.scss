@@ -1,0 +1,14 @@
+//
+// Bootstrap overrides
+// --------------------------------------------------
+
+// Colors
+$gray-darker:            #030303 !default; // #222
+$text-color:            $gray-darker !default;
+
+// Fonts
+$font-family-serif:       "SignPainter-HouseScript", Georgia, "Times New Roman", Times, serif !default;
+$headings-font-family:    "brandon-grotesque", Helvetica, Arial, sans-serif !default;
+
+// Grid
+$grid-gutter-width:         20px !default;

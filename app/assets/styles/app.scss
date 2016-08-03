@@ -4,6 +4,9 @@
  *
  */
 
+// Override Bootstrap Variables
+@import 'app/bootsrap.overrides';
+
 // Vendor styles
 @import './bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 
