@@ -69,16 +69,34 @@
       <div class="footnotes">
         {{ review.helpful_count }} out of {{ review.helpful_count + review.not_helpful_count }} found this review helpful.
         <br />Was this review helpful to you?
-        <button ng-click="vm.vote(review.id, true)">Helpful</button>
-        <button ng-click="vm.vote(review.id, false)">Not Helpful</button>
+        <button class="btn btn-link" ng-click="vm.vote(review.id, true)">
+          <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+          Helpful
+        </button>
+        |
+        <button class="btn btn-link" ng-click="vm.vote(review.id, false)">
+          <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+          Not Helpful
+        </button>
+
+        <button class="btn btn-link is-small button-flag" ng-click="vm.vote(review.id, false)">
+          <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+          Flag This Content For Review
+        </button>
       </div>
 
     </div>
 
     <div class="bottom-container">
-      <button ng-click="vm.seeAll()" ng-if="!vm.isSeeAll">SEE ALL {{ vm.totalReviewsByType }} REVIEWS</button>
-      <button ng-click="vm.seeLess()" ng-if="vm.isSeeAll">SEE LESS</button>
-      <button>ADD A REVIEW</button>
+      <button class="btn btn-default" ng-click="vm.seeAll()" ng-if="!vm.isSeeAll">
+        SEE ALL {{ vm.totalReviewsByType }} REVIEWS
+        <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+      </button>
+      <button class="btn btn-default" ng-click="vm.seeLess()" ng-if="vm.isSeeAll">SEE LESS</button>
+      <button class="btn btn-primary is-right">
+        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+        ADD A REVIEW
+      </button>
     </div>
   </div>
 
@@ -98,6 +116,11 @@
         </div>
       </div>
       <a href="#" ng-click="vm.viewAll()">View All {{ vm.totalReviews }} Reviews</a>
+      <br>
+      <button class="btn btn-primary">
+        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+        ADD A REVIEW
+      </button>
     </div>
   </div>
 

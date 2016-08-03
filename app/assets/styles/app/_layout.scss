@@ -61,3 +61,78 @@ body {
 .side-container {
   @extend .col-md-4;
 }
+
+.bottom-container {
+  padding-top: 20px;
+  line-height: 12px;
+}
+
+// Buttons
+.btn {
+  border-radius: 8px;
+
+  &.is-right {
+    float: right;
+  }
+
+  &.is-small {
+    font-size: 12px;
+  }
+
+  .glyphicon {
+    font-size: 18px;
+    vertical-align: bottom;
+  }
+}
+
+.btn-default {
+  font-family: $headings-font-family;
+  font-size: 12px;
+  color: $app-color-primary;
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+
+  .glyphicon {
+    padding-left: 5px;
+  }
+}
+
+.btn-primary {
+  font-family: $headings-font-family;
+  font-size: 12px;
+  color: #fff;
+  background-color: $app-color-primary;
+  border: none;
+
+  .glyphicon {
+    padding-right: 5px;
+  }
+}
+
+.btn-link {
+  color: $app-color-primary;
+  font-size: 14px;
+  padding: 0;
+
+  .glyphicon {
+    font-size: 10px;
+    vertical-align: middle;
+    padding-bottom: 3px;
+  }
+}
+
+.button-flag {
+  float: none;
+
+  &::before {
+    content: '| ';
+  }
+
+  @include respond-to(600px) {
+    float: right;
+
+    &::before {
+      content: '';
+    }
+  }
+}
