@@ -1,0 +1,123 @@
+/*
+ * Reviews Module
+ *
+ */
+
+.reviews {
+  @extend .row;
+  padding-bottom: 40px;
+
+  .options {
+    padding: 20px 0;
+  }
+
+  .review {
+    padding-bottom: 13px;
+    padding-top: 20px;
+    border-bottom: 1px solid $border-color-primary;
+
+    /* Customize Star Rating Component */
+    & .star {
+      font-size: 16px;
+      text-shadow: none;
+    }
+  }
+
+  .meta {
+    padding-left: 5px;
+    margin-bottom: 10px;
+    border-left: 10px solid $user-type-unknown-color;
+
+    &.is-reader {
+      border-left-color: darken($user-type-reader-color, 10%);
+    }
+    &.is-critic {
+      border-left-color: darken($user-type-critic-color, 10%);
+    }
+    &.is-editor {
+      border-left-color: darken($user-type-editor-color, 10%);
+    }
+    &.is-librarian {
+      border-left-color: darken($user-type-librarian-color, 10%);
+    }
+    &.is-blogger {
+      border-left-color: darken($user-type-blogger-color, 10%);
+    }
+  }
+
+  .footnotes {
+    margin-top: 25px;
+    color: #8f8f8f;
+    font-size: 12px;
+  }
+
+  .bottom-container {
+    padding: 20px 0;
+  }
+
+}
+
+.info-text {
+  margin-top: -4px;
+  margin-bottom: 10px;
+  font-family: $headings-font-family;
+  font-size: 12px;
+  font-weight: bold;
+  color: $app-gray-dark;
+}
+
+.average-container {
+    text-align: center;
+    border: 2px solid #fff;
+    padding: 8px 4px;
+    box-shadow: 0 0 6px 1px rgba(100, 100, 100, .3);
+
+    .star {
+      font-size: 20px;
+
+      &.filled {
+        text-shadow: .12em .12em .15em #bebebe;
+      }
+    }
+  }
+
+.average-graph {
+  @include clearfix;
+  font-family: $headings-font-family;
+  font-size: 13px;
+  line-height: 13px;
+  font-weight: bold;
+  color: $app-color-primary;
+  margin-bottom: 6px;
+
+
+  &__star {
+    @extend .col-xs-2;
+    @extend .cancel-padding;
+    padding-right: 4px !important;
+    text-align: right;
+  }
+
+  &__bar {
+    @extend .col-xs-8;
+    @extend .cancel-padding;
+    background-color: #fff;
+
+    &__filled {
+      height: 15px;
+      background-color: #47a7ae;
+    }
+  }
+
+  &__count {
+    @extend .col-xs-2;
+    @extend .cancel-padding;
+    color: $app-gray-dark;
+    text-align: left;
+    padding-left: 4px !important;
+  }
+}
+
+.user-types {
+
+}

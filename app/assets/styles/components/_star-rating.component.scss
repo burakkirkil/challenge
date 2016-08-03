@@ -1,0 +1,29 @@
+/*
+ * Star Rating Component
+ *
+ */
+
+$star-color: $app-color-primary;
+
+.star-rating {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+
+  .star {
+    padding: 0 .1em;
+    color: $app-gray-light;
+    font-size: 30px;
+    list-style-type: none;
+    display: inline-block;
+
+    &.filled {
+      color: $star-color !important;
+    }
+  }
+
+  &.readonly .star.filled {
+    color: #666;
+  }
+
+}

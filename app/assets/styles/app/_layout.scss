@@ -1,0 +1,61 @@
+/*
+ * Main Layout
+ *
+ */
+
+body {
+  background-color: $bg-color-primary;
+}
+
+.navigation {
+  @extend .navbar;
+  @extend .navbar-default;
+  @extend .navbar-fixed-top;
+
+  height: 46px;
+  background-color: $app-gray-darker;
+
+  &__brand {
+    @extend .navbar-brand;
+  }
+
+  &__links {
+    @extend .nav;
+    @extend .navbar-nav;
+  }
+}
+
+.main-container {
+  @extend .container;
+  margin-top: 46px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.header-container {
+  @extend .row;
+  text-align: center;
+  margin-bottom: 60px;
+
+  h5 {
+    margin-top: 0;
+    color: $app-color-primary !important;
+  }
+
+  .star-rating {
+    margin-top: -4px;
+  }
+
+  .star {
+    color: #fff !important;
+    text-shadow: .12em .12em .15em #bebebe;
+  }
+}
+
+.content-container {
+  @extend .col-md-8;
+}
+
+.side-container {
+  @extend .col-md-4;
+}

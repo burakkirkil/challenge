@@ -1,0 +1,32 @@
+//
+// Main Variables
+// --------------------------------------------------
+
+// Paths
+$icon-font-path: '/bootstrap-sass/assets/fonts/bootstrap/';
+
+// Color Palette
+$app-color-primary: #47a7ae;
+$app-gray-light: #c4c4c4;
+$app-gray-dark: #8f8f8f;
+$app-gray-darker: #333;
+
+// Background Colors
+$bg-color-primary: #e7e7e7;
+
+// Text Colors
+$text-color-primary: #030303;
+$text-color-gray: $app-gray-dark;
+
+// Border Colors
+$border-color-primary: #cfcfcf;
+
+
+
+// User Type Colors
+$user-type-reader-color: #c4ebfc;
+$user-type-critic-color: #fde3a0;
+$user-type-editor-color: #fecbcb;
+$user-type-librarian-color: #e1ffca;
+$user-type-blogger-color: #e6cbfb;
+$user-type-unknown-color: #ffffff;
