@@ -1,42 +1,36 @@
-<div class="reviews row" ng-if="vm.isLoading">
-
   <div class="header-container">
-    <h1>Book REVIEWS</h1>
-    <h5>Loading...</h5>
+    <h1><span class="serif">Book</span><br /> REVIEWS</h1>
+    <star-rating ng-model="vm.averageUserRating" max="vm.maxUserRating" ng-if="!vm.isLoading"></star-rating>
+    <h5 ng-if="!vm.isLoading">{{ vm.totalReviews }} Total Reviews</h5>
+    <h5 ng-if="vm.isLoading">Loading...</h5>
   </div>
 
-</div>
+<div class="reviews" ng-if="!vm.isLoading">
 
-<div class="reviews row" ng-if="!vm.isLoading">
-
-  <div class="header-container">
-    <h1>Book REVIEWS</h1>
-    <star-rating ng-model="vm.averageUserRating" max="vm.maxUserRating"></star-rating>
-    <h5>{{ vm.totalReviews }} Total Reviews</h5>
-  </div>
-
-  <div class="col-md-8">
-
-    <h4>SEE REVIEWS FROM</h4>
-    <button ng-click="vm.showEveryone()">EVERYONE ({{ vm.totalReviews }})</button>
-    <button ng-repeat="(type, count) in vm.userTypes" ng-click="vm.setQuery(type, count)">
-      {{ type | uppercase }}S ({{ count }})
-    </button>
+  <div class="content-container">
+    <div class="user-types">
+      <h4 style="border-bottom: 1px solid #ccc;">SEE REVIEWS FROM:</h4>
+      <button ng-click="vm.showEveryone()">EVERYONE ({{ vm.totalReviews }})</button>
+      <button ng-repeat="(type, count) in vm.userTypes" ng-click="vm.setQuery(type, count)">
+        {{ type | uppercase }}S ({{ count }})
+      </button>
+    </div>
 
     <div class="options">
       <!-- Search: <input ng-model="vm.query"> -->
       <!-- How Many: <input ng-model="vm.quantityLimit"> -->
+      <h2><span class="serif">{{vm.orderPropValues[vm.orderPropSelected]}}</span><br /> REVIEWS</h2>
       Sort by:
       <select ng-model="vm.orderPropSelected">
-        <option ng-repeat="value in vm.orderPropValues" value="{{ value.value }}">{{ value.title }}</option>
+        <option ng-repeat="(value, title) in vm.orderPropValues" value="{{ value }}">{{ title }}</option>
       </select>
     </div>
 
 
     <!-- Review Template -->
-    <div class="review" ng-repeat=" review in vm.reviews | 
-                                    filter:vm.query | 
-                                    orderBy:vm.orderPropSelected:true | 
+    <div class="review" ng-repeat=" review in vm.reviews |
+                                    filter:vm.query |
+                                    orderBy:vm.orderPropSelected:true |
                                     limitTo:vm.quantityLimit">
       <div class="meta is-{{ review.user.type }}">
         <div class="date">{{ review.date | date:'longDate' }}</div>
@@ -45,7 +39,7 @@
       </div>
       <div class="title-container">
         <star-rating ng-model="review.rating" max="vm.maxUserRating" style="small-star"></star-rating>
-        <h2 class="title">{{ review.title | uppercase }}</h2>
+        <h3 class="title">{{ review.title | uppercase }}</h3>
       </div>
       <div class="content">{{ review.content }}</div>
       <!-- <a href="#" class="read-more">Read More...</a> -->
@@ -66,16 +60,23 @@
     </div>
   </div>
 
-  <div class="col-md-4">
-    <star-rating ng-model="vm.averageUserRating" max="vm.maxUserRating"></star-rating>
-    <h5>Average Rating: {{ vm.averageUserRating }} of {{ vm.maxUserRating }} stars</h5>
-    <div ng-repeat="rating in vm.ratings | orderBy:'id':true">{{ rating.id }} STAR
-      <div class="bar-container">
-        <div class="bar-container__bar" style="width: {{ rating.value * 1.8 }}px;"></div>
+  <div class="side-container">
+    <div class="average-container">
+      <star-rating ng-model="vm.averageUserRating" max="vm.maxUserRating"></star-rating>
+      <div class="info-text">Average Rating: {{ vm.averageUserRating }} of {{ vm.maxUserRating }} stars</div>
+      <div class="average-graph" ng-repeat="rating in vm.ratings | orderBy:'id':true">
+        <div class="average-graph__star">
+          {{ rating.id }} STAR
+        </div>
+        <div class="average-graph__bar">
+          <div class="average-graph__bar__filled" style="width: {{ rating.value }}%;"></div>
+        </div>
+        <div class="average-graph__count">
+          ({{ rating.value }})
+        </div>
       </div>
-      ({{ rating.value }})
+      <a href="#" ng-click="vm.viewAll()">View All {{ vm.totalReviews }} Reviews</a>
     </div>
-    <a href="#" ng-click="vm.viewAll()">View All {{ vm.totalReviews }} Reviews</a>
   </div>
 
 </div>
