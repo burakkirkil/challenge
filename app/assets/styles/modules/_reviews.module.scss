@@ -145,12 +145,15 @@
 
   &__options {
     @extend .col-sm-6;
+    @include clearfix;
     text-align: left;
     margin-top: 20px;
+    padding: 0;
 
     @include respond-to(small) {
       text-align: right;
       margin-top: 0;
+      padding: 0 20px;
     }
 
     &.is-mobile {
@@ -184,7 +187,7 @@
 .average-container {
     text-align: center;
     border: 2px solid #fff;
-    padding: 8px 4px;
+    padding: 8px 4px 20px 4px;
     margin-top: 20px;
     box-shadow: 0 0 6px 1px rgba(100, 100, 100, .3);
 

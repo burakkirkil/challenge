@@ -1,2 +1,4 @@
 angular
-  .module('app.shared', ['lodash']);
+  .module('app.shared', [
+    'lodash'
+  ]);

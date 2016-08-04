@@ -26,7 +26,7 @@
       </div>
       <div class="sort-filter__options is-mobile">
         See reviews from:
-        <select ng-model="vm.selectedUserType">
+        <select class="selectpicker" ng-model="vm.selectedUserType">
           <option value="everyone">EVERYONE <br /> ({{ vm.totalReviews }})</option>
           <option value="{{type}}" ng-repeat="(type, count) in vm.userTypes">
             {{ type | uppercase }}S  <br />  ({{ count }})
@@ -35,8 +35,8 @@
       </div>
       <div class="sort-filter__options">
         Sort by:
-        <select ng-model="vm.orderPropSelected">
-          <option ng-repeat="(value, title) in vm.orderPropValues" value="{{ value }}">{{ title }}</option>
+        <select class="selectpicker" ng-model="vm.orderPropSelected">
+          <option ng-repeat="(value, title) in vm.orderPropValues" value="{{ value }}">{{ title | uppercase }}</option>
         </select>
       </div>
     </div>
@@ -97,7 +97,10 @@
         SEE ALL {{ vm.totalReviewsByType }} REVIEWS
         <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
       </button>
-      <button class="btn btn-default" ng-click="vm.seeLess()" ng-if="vm.isSeeAll">SEE LESS</button>
+      <button class="btn btn-default" ng-click="vm.seeLess()" ng-if="vm.isSeeAll">
+        SEE LESS
+        <span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>
+      </button>
       <button class="btn btn-primary is-right">
         <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
         ADD A REVIEW
@@ -120,7 +123,9 @@
           ({{ rating.value }})
         </div>
       </div>
-      <a href="#" ng-click="vm.viewAll()">View All {{ vm.totalReviews }} Reviews</a>
+      <button class="btn btn-link btn-sans-serif" ng-click="vm.viewAll()">
+        View All {{ vm.totalReviews }} Reviews
+      </button>
       <br>
       <button class="btn btn-primary">
         <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>

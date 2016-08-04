@@ -3,7 +3,7 @@ angular
   .module('app.reviews')
   .controller('ReviewsController', ReviewsController);
 
-function ReviewsController(DataService, UserTypes, OrderPropValues, UserRating, logger, $scope) {
+function ReviewsController(DataService, UserTypes, OrderPropValues, UserRating, logger, $scope, $timeout) {
   var vm = this,
   // TODO: make options injectible
       options = {
@@ -55,6 +55,8 @@ function ReviewsController(DataService, UserTypes, OrderPropValues, UserRating, 
 
         update(data);
 
+        initSelectPicker();
+
         logger.warn('Reviews Updated.');
         logger.groupEnd('Reviews Module');
       });
@@ -82,6 +84,16 @@ function ReviewsController(DataService, UserTypes, OrderPropValues, UserRating, 
     logger.warn('Getting Reviews...');
     return DataService.getReviews().then( data => {
         return data.data;
+    });
+  }
+
+  function initSelectPicker(){
+    $timeout(function() {
+        $('.selectpicker').selectpicker({
+          showTick: true
+          //style: 'btn-info',
+          //size: 4
+        });
     });
   }
 
