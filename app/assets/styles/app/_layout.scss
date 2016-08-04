@@ -11,12 +11,21 @@ body {
   @extend .navbar;
   @extend .navbar-default;
   @extend .navbar-fixed-top;
-
-  height: 46px;
+  height: 48px;
+  min-height: 48px;
+  border: none;
   background-color: $app-gray-darker;
 
   &__brand {
     @extend .navbar-brand;
+    padding: 10px 10px;
+    margin-left: -3px !important;
+
+    img {
+      width: 75px;
+      height: 32px;
+      color: #fff;
+    }
   }
 
   &__links {
@@ -37,7 +46,7 @@ body {
 
 .header-container {
   text-align: center;
-  margin-bottom: 0px;
+  margin-bottom: 14px;
 
   h5 {
     margin-top: 0;
@@ -65,6 +74,14 @@ body {
 .bottom-container {
   padding-top: 20px;
   line-height: 12px;
+},
+
+.link-seperator {
+  &::before {
+    content: '|';
+    font-weight: normal;
+    color: #c1c1c1;
+  }
 }
 
 // Buttons
@@ -89,8 +106,9 @@ body {
   font-family: $headings-font-family;
   font-size: 12px;
   color: $app-color-primary;
+  background: linear-gradient(to bottom, #fff 0%, #fff 50%, #fbfbfb 51%, #f2f2f2 100%);
   background-color: #fff;
-  border: 1px solid #e1e1e1;
+  border: 1px solid #dfdfdf;
 
   .glyphicon {
     padding-left: 5px;
@@ -101,6 +119,7 @@ body {
   font-family: $headings-font-family;
   font-size: 12px;
   color: #fff;
+  background: linear-gradient(to bottom, #6db9bf 0%, #6db9bf 50%, #59afb7 51%, #48a7af 100%);
   background-color: $app-color-primary;
   border: none;
 
@@ -123,16 +142,10 @@ body {
 
 .button-flag {
   float: none;
-
-  &::before {
-    content: '| ';
-  }
+  display: block;
 
   @include respond-to(600px) {
     float: right;
-
-    &::before {
-      content: '';
-    }
+    display: inline-block;
   }
 }

@@ -10,10 +10,12 @@
   <div class="content-container">
     <div class="user-types">
       <h4 style="border-bottom: 1px solid #ccc;">SEE REVIEWS FROM:</h4>
-      <a ng-class="vm.query.user.type === type ? 'is-selected' : 'is-not-selected'" class="ribbon is-everyone" ng-click="vm.showEveryone()">EVERYONE <br /> ({{ vm.totalReviews }})</a>
-      <a ng-class="vm.query.user.type === type ? 'is-selected' : 'is-not-selected'" class="ribbon is-{{ type }}" ng-repeat="(type, count) in vm.userTypes" ng-click="vm.setQuery(type, count)">
-        {{ type | uppercase }}S  <br />  ({{ count }})
-      </a>
+      <div class="ribbon-container">
+        <a ng-class="vm.query.user.type === type ? 'is-selected' : 'is-not-selected'" class="ribbon is-everyone" ng-click="vm.showEveryone()">EVERYONE <br /> ({{ vm.totalReviews }})</a>
+        <a ng-class="vm.query.user.type === type ? 'is-selected' : 'is-not-selected'" class="ribbon is-{{ type }}" ng-repeat="(type, count) in vm.userTypes" ng-click="vm.setQuery(type, count)">
+          {{ type | uppercase }}S  <br />  ({{ count }})
+        </a>
+      </div>
     </div>
 
     <div class="sort-filter">
@@ -47,7 +49,10 @@
                                     limitTo:vm.quantityLimit">
       <div class="meta is-{{ review.user.type }}">
         <div class="meta__img">
-          <img src="http://placehold.it/50x50" alt="{{ review.book_type }}">
+          <!-- <img src="http://placehold.it/50x50" alt="{{ review.book_type }}"> -->
+          <!-- <img src="http://placekitten.com/50/50" alt="{{ review.book_type }}"> -->
+          <img src="http://dummyimage.com/50x50/cccccc/666666" alt="{{ review.book_type }}">
+          <!-- <img src="https://placeimg.com/50/50/people" alt="{{ review.book_type }}"> -->
         </div>
         <div>
           <div class="meta__date">{{ review.date | date:'longDate' }}</div>
@@ -73,7 +78,7 @@
           <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
           Helpful
         </button>
-        |
+        <span class="link-seperator"></span>
         <button class="btn btn-link" ng-click="vm.vote(review.id, false)">
           <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
           Not Helpful
