@@ -24,6 +24,9 @@ Run test specs
 npm test
 ```
 
+![Test Screenshot](https://s31.postimg.org/cprp7w0ij/tests.png)
+
+
 Open the project in your browser with the url: ```http://localhost:8080/reviews```
 
 ## Deployment
