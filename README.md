@@ -20,13 +20,13 @@ gulp server
 
 Run test specs
 
-Test runner: `karma`
-Test framework: `karma-jasmine`
-Reporter: `karma-mocha-reporter`
-
 ```bash
 npm test
 ```
+
+Test runner: `karma` 
+Test framework: `karma-jasmine` 
+Reporter: `karma-mocha-reporter`
 
 ![Test Screenshot](https://s31.postimg.org/cprp7w0ij/tests.png)
 
