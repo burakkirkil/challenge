@@ -1,3 +1,9 @@
+/*
+ * VNGRS Challenge App
+ * Author: Burak Kırkıl (burakkirkil@gmail.com)
+ *
+ */
+
 angular
   .module('app', [
     'ui.router',
