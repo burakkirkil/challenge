@@ -24,6 +24,10 @@ function starRating() {
         scope.max = 5;
       }
 
+      if (scope.rating === undefined) {
+        scope.rating = -1;
+      }
+
       function updateStars() {
         scope.stars = [];
         for (var i = 0; i < scope.max; i++) {

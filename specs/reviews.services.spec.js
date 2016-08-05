@@ -1,4 +1,4 @@
-describe('Reviews Services ::', function() {
+describe('Reviews Services ::::::::::::::::::::::::::::::::', function() {
 
   beforeEach(module('app'));
 
@@ -8,7 +8,7 @@ describe('Reviews Services ::', function() {
 
     beforeEach(inject(function(OrderPropValues) {
       service = OrderPropValues;
-    }))
+    }));
 
     it('should return object', function() {
       expect(service).toEqual(jasmine.any(Object));
@@ -33,7 +33,7 @@ describe('Reviews Services ::', function() {
     beforeEach(inject(function(UserTypes) {
       service = UserTypes;
       types = service.getUserTypes(data);
-    }))
+    }));
 
     it('should define methods', function() {
       expect(service.getUserTypes).toBeDefined();
@@ -73,7 +73,7 @@ describe('Reviews Services ::', function() {
     beforeEach(inject(function(UserRating) {
       service = UserRating;
       userRatings = service.getUserRatings(data, maxRating);
-    }))
+    }));
 
     it('should define methods', function() {
       expect(service.getAverage).toBeDefined();

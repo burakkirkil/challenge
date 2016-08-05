@@ -91,8 +91,6 @@ function ReviewsController(DataService, UserTypes, OrderPropValues, UserRating, 
     $timeout(function() {
         $('.selectpicker').selectpicker({
           showTick: true
-          //style: 'btn-info',
-          //size: 4
         });
     });
   }

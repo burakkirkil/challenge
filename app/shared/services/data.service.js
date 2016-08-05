@@ -6,7 +6,7 @@ angular
     $http.defaults.headers.common['X-client_id'] = CLIENT_ID;
   });
 
-function DataService($http, logger, API_URL) {
+function DataService($http, $q, logger, API_URL) {
   return {
     getReviews: getReviews,
     vote: vote
@@ -23,7 +23,8 @@ function DataService($http, logger, API_URL) {
     }
 
     function failed(error) {
-      logger.error('XHR Failed for getReviews.' + error.data);
+      //logger.error('XHR Failed for getReviews.' + error.data);
+      return $q.reject(error.status);
     }
   }
 
