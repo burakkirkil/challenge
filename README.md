@@ -20,14 +20,25 @@ gulp server
 
 Run test specs
 
+Test runner: `karma`
+Test framework: `karma-jasmine`
+Reporter: `karma-mocha-reporter`
+
 ```bash
 npm test
 ```
 
 ![Test Screenshot](https://s31.postimg.org/cprp7w0ij/tests.png)
 
-
 Open the project in your browser with the url: ```http://localhost:8080/reviews```
 
 ## Deployment
 ```gulp deploy``` command will bundle whole project files into ```'/dist'``` directory.
+
+## App folder Structure
+
+![App folder Structure](https://s32.postimg.org/msoeab7hd/app.png)
+
+## Styles folder structure
+
+![Styles folder structure](https://s32.postimg.org/dm63n128x/styles.png)
