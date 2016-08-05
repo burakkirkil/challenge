@@ -10,15 +10,12 @@
   },
   "libs": {
     "scripts": [
-      "/lodash/lodash.js",
-      "/jquery/dist/jquery.js",
-      "/bootstrap-sass/assets/javascripts/bootstrap.js",
-      "/bootstrap-select/js/bootstrap-select.js",
       "/angular/angular.js",
-      "/angular-bootstrap/ui-bootstrap.js",
       "/angular-ui-router/release/angular-ui-router.js",
-      "/angular-cookies/angular-cookies.js",
-      "/angular-local-storage/dist/angular-local-storage.js"
+      "/lodash/lodash.js",
+      "/jquery-1.9.1.min/index.js",
+      "/bootstrap-sass/assets/javascripts/bootstrap.js",
+      "/bootstrap-select/js/bootstrap-select.js"
     ],
     "styles": [
     ]

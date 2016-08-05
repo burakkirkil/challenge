@@ -1,14 +1,12 @@
 {
   "name": "ng-complex",
   "dependencies": {
-    "angular": "~1.4.3",
-    "angular-bootstrap": "~0.13.1",
+    "angular": "~1.5.8",
     "angular-ui-router": "~0.2.15",
     "bootstrap-sass": "~3.3.5",
-    "angular-cookies": "~1.4.3",
-    "angular-local-storage": "~0.2.2",
     "lodash": "^4.14.1",
     "angular-mocks": "^1.5.8",
-    "bootstrap-select": "^1.10.0"
+    "bootstrap-select": "^1.10.0",
+    "jquery-1.9.1.min": "https://code.jquery.com/jquery-1.9.1.min.js"
   }
 }

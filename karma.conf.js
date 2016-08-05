@@ -16,11 +16,11 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       "bower_components/lodash/lodash.js",
+      "bower_components/jquery-1.9.1.min/index.js",
+      "bower_components/bootstrap-sass/assets/javascripts/bootstrap.js",
+      "bower_components/bootstrap-select/js/bootstrap-select.js",
       "bower_components/angular/angular.js",
-      "bower_components/angular-bootstrap/ui-bootstrap.js",
       "bower_components/angular-ui-router/release/angular-ui-router.js",
-      "bower_components/angular-cookies/angular-cookies.js",
-      "bower_components/angular-local-storage/dist/angular-local-storage.js",
       'bower_components/angular-mocks/angular-mocks.js',
       'app/**/*.module.js',
       'app/**/**.js',
@@ -42,7 +42,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['mocha'],
 
 
     // web server port

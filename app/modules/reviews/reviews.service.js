@@ -25,10 +25,12 @@ function UserTypes(logger) {
     var userTypes = {};
 
     angular.forEach(data, review => {
-      if(!userTypes[review.user.type]){
-        userTypes[review.user.type] = 1;
-      } else {
-        userTypes[review.user.type]++;
+      if(review.user.type){
+        if(!userTypes[review.user.type]){
+          userTypes[review.user.type] = 1;
+        } else {
+          userTypes[review.user.type]++;
+        }
       }
     });
 
