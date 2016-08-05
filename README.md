@@ -37,8 +37,8 @@ Open the project in your browser with the url: ```http://localhost:8080/reviews`
 
 ## App folder Structure
 
-![App folder Structure](https://s32.postimg.org/msoeab7hd/app.png)
+![App folder Structure](https://s32.postimg.org/u8nnw3v6t/app.png)
 
 ## Styles folder structure
 
-![Styles folder structure](https://s32.postimg.org/dm63n128x/styles.png)
+![Styles folder structure](https://s32.postimg.org/mtyc3q9b9/styles.png)
