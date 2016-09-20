@@ -1,6 +1,3 @@
-VNGRS-CHALLENGE APP
-=========
-
 ## How to Use
 
 Install the dependencies
